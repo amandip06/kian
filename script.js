@@ -9,8 +9,8 @@
    CONFIGURATION — Edit these to personalise
    ============================================================ */
 const CONFIG = {
-  loveStartDate: new Date("2023-01-01T00:00:00"),  // ← Change to your real date
-  vaultPassword: "KIWI26",                          // ← Change secret password here
+  loveStartDate: new Date("2024-02-09T00:00:00"),  // ← Change to your real date
+  vaultPassword: "KIWI09",                          // ← Change secret password here
   typewriterTexts: [
     "For Soumi 🌸",
     "For Kiwi 💕",
