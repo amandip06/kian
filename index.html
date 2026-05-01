@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open When You Miss Me — For Soumi, from Kian</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body class="dark-theme" id="body">
+
+  <!-- ============ CURSOR TRAIL ============ -->
+  <div id="cursor-trail"></div>
+
+  <!-- ============ TOAST CONTAINER ============ -->
+  <div id="toast-container"></div>
+
+  <!-- ============ PETAL CONTAINER ============ -->
+  <div id="petal-container"></div>
+
+  <!-- ============ SPARKLE CONTAINER ============ -->
+  <div id="sparkle-container"></div>
+
+  <!-- =============================================
+       INTRO ANIMATION SCREEN
+  ============================================== -->
+  <div id="intro-screen">
+    <canvas id="star-canvas"></canvas>
+    <div id="intro-content">
+      <div id="intro-heart">
+        <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 85 C50 85 5 50 5 27 C5 12 17 2 30 2 C38 2 46 8 50 15 C54 8 62 2 70 2 C83 2 95 12 95 27 C95 50 50 85 50 85Z"/>
+        </svg>
+      </div>
+      <div id="intro-text">
+        <div class="intro-line" id="intro-line-1"></div>
+        <div class="intro-line" id="intro-line-2"></div>
+        <div class="intro-line" id="intro-line-3"></div>
+      </div>
+      <div id="floating-names">
+        <span>SOUMI</span><span>KIWI</span><span>KIAN</span>
+        <span>KITTEN</span><span>ANWI</span><span>ROSHNI</span><span>KIDDO</span>
+      </div>
+      <div id="intro-envelope">
+        <div class="envelope-body">
+          <div class="envelope-flap"></div>
+          <div class="envelope-letter">💌</div>
+        </div>
+      </div>
+    </div>
+    <button id="skip-intro-btn">Skip Intro ✨</button>
+  </div>
+
+  <!-- =============================================
+       MAIN WEBSITE
+  ============================================== -->
+  <div id="main-site" class="hidden">
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <span class="nav-heart">💕</span>
+        <span class="nav-title">Kian × Kiwi</span>
+      </div>
+      <div class="nav-links">
+        <a href="#cards">Love Notes</a>
+        <a href="#memories">Memories</a>
+        <a href="#games">Games</a>
+        <a href="#vault">Vault</a>
+      </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" title="Toggle Theme">🌙</button>
+        <button id="reset-btn" class="btn-icon" title="Reset Progress">🔄</button>
+        <div id="progress-badge" class="progress-badge">0/15 opened</div>
+      </div>
+    </nav>
+
+    <!-- =============================================
+         HERO SECTION
+    ============================================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <canvas id="hero-canvas"></canvas>
+      </div>
+      <div class="hero-content">
+        <div class="hero-from">
+          <span class="dancing">From Amandip, your Kian</span>
+        </div>
+        <h1 class="hero-title">Open When<br/><span class="gradient-text">You Miss Me</span></h1>
+        <p class="hero-sub">A little piece of Kian's heart, made only for Soumi</p>
+        <div class="hero-typewriter-wrap">
+          <span class="dancing typewriter-text" id="hero-typewriter"></span>
+        </div>
+        <a href="#cards" class="btn-main">
+          <span>Start Opening Love Notes</span>
+          <span class="btn-heart">💌</span>
+        </a>
+      </div>
+      <div class="hero-scroll-hint">scroll down ↓</div>
+    </section>
+
+    <!-- =============================================
+         LOVE IDENTITY SECTION
+    ============================================== -->
+    <section class="identity-section" id="identity">
+      <div class="container">
+        <div class="identity-card reveal">
+          <div class="identity-badge">Made with infinite love</div>
+          <h2 class="identity-by">by <span class="name-glow">Amandip</span> (Kian)</h2>
+          <p class="identity-for">For <span class="name-glow pink">Soumi</span>, my Kiwi, my peace, my forever</p>
+          <div class="floating-name-tags">
+            <span class="name-tag" style="--d:0s">Kitten 🐱</span>
+            <span class="name-tag" style="--d:.3s">Anwi 🌸</span>
+            <span class="name-tag" style="--d:.6s">Roshni ✨</span>
+            <span class="name-tag" style="--d:.9s">Kiddo 🌟</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         LOVE COUNTER SECTION
+    ============================================== -->
+    <section class="counter-section reveal" id="counter">
+      <div class="container">
+        <p class="counter-label dancing">Kian has loved Soumi for…</p>
+        <div class="counter-grid">
+          <div class="counter-unit">
+            <div class="counter-num" id="cnt-days">000</div>
+            <div class="counter-unit-label">days</div>
+          </div>
+          <div class="counter-sep">:</div>
+          <div class="counter-unit">
+            <div class="counter-num" id="cnt-hours">00</div>
+            <div class="counter-unit-label">hours</div>
+          </div>
+          <div class="counter-sep">:</div>
+          <div class="counter-unit">
+            <div class="counter-num" id="cnt-mins">00</div>
+            <div class="counter-unit-label">minutes</div>
+          </div>
+          <div class="counter-sep">:</div>
+          <div class="counter-unit">
+            <div class="counter-num" id="cnt-secs">00</div>
+            <div class="counter-unit-label">seconds</div>
+          </div>
+        </div>
+        <p class="counter-note">and counting — forever</p>
+      </div>
+    </section>
+
+    <!-- =============================================
+         MOOD SECTION
+    ============================================== -->
+    <section class="mood-section reveal" id="mood">
+      <div class="container">
+        <h2 class="section-title">How is my <span class="gradient-text">Kiwi</span> feeling today?</h2>
+        <div class="mood-buttons">
+          <button class="mood-btn" data-mood="sad">😢 Sad</button>
+          <button class="mood-btn" data-mood="missing">💌 Missing You</button>
+          <button class="mood-btn" data-mood="angry">🔥 Angry</button>
+          <button class="mood-btn" data-mood="tired">😴 Tired</button>
+          <button class="mood-btn" data-mood="happy">😊 Happy</button>
+          <button class="mood-btn" data-mood="lonely">🌙 Lonely</button>
+          <button class="mood-btn" data-mood="romantic">💕 Romantic</button>
+        </div>
+        <div class="mood-response hidden" id="mood-response">
+          <div class="mood-emoji" id="mood-emoji"></div>
+          <p class="mood-message" id="mood-message"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         OPEN WHEN CARDS
+    ============================================== -->
+    <section class="cards-section" id="cards">
+      <div class="container">
+        <h2 class="section-title reveal">Open When… <span class="gradient-text">💌</span></h2>
+        <p class="section-sub reveal">Each letter is sealed with love from Amandip, waiting just for you, Soumi.</p>
+        <div class="cards-grid" id="cards-grid">
+          <!-- Cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         MEMORY LANE
+    ============================================== -->
+    <section class="memory-section reveal" id="memories">
+      <div class="container">
+        <h2 class="section-title">Memory <span class="gradient-text">Lane</span></h2>
+        <div class="timeline" id="timeline">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         PROMISE SECTION
+    ============================================== -->
+    <section class="promise-section reveal" id="promises">
+      <div class="container">
+        <h2 class="section-title">Kian's <span class="gradient-text">Promises</span></h2>
+        <p class="section-sub">Words that Amandip means with every part of himself.</p>
+        <div class="promise-grid" id="promise-grid">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FUTURE DREAMS
+    ============================================== -->
+    <section class="dreams-section reveal" id="dreams">
+      <div class="container">
+        <h2 class="section-title">Our <span class="gradient-text">Future Dreams</span></h2>
+        <p class="section-sub">The beautiful life Kian and Kiwi are building together.</p>
+        <div class="dreams-grid" id="dreams-grid">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         MINI LOVE GAMES
+    ============================================== -->
+    <section class="games-section reveal" id="games">
+      <div class="container">
+        <h2 class="section-title">Love <span class="gradient-text">Games</span></h2>
+        <p class="section-sub">Kian hid little joys here just for Kiwi. 🎮</p>
+        <div class="games-tabs">
+          <button class="game-tab active" data-game="catch">💖 Catch Hearts</button>
+          <button class="game-tab" data-game="stars">⭐ Star Message</button>
+          <button class="game-tab" data-game="jar">🫙 Love Jar</button>
+        </div>
+
+        <!-- Game 1: Catch Hearts -->
+        <div class="game-panel active" id="game-catch">
+          <div class="game-header">
+            <span>Score: <strong id="catch-score">0</strong></span>
+            <span>Time: <strong id="catch-time">30</strong>s</span>
+            <button class="btn-secondary" id="catch-start">Start Game 💖</button>
+          </div>
+          <div class="catch-arena" id="catch-arena">
+            <div class="catch-idle">Click "Start Game" to catch Kian's hearts! 💕</div>
+          </div>
+        </div>
+
+        <!-- Game 2: Star Message -->
+        <div class="game-panel" id="game-stars">
+          <p class="game-desc">Click all the glowing stars to reveal Kian's hidden message for Kiwi ⭐</p>
+          <div class="stars-arena" id="stars-arena">
+            <!-- Stars injected by JS -->
+          </div>
+          <div class="revealed-message hidden" id="revealed-message"></div>
+          <button class="btn-secondary" id="stars-reset">Reset Stars 🌟</button>
+        </div>
+
+        <!-- Game 3: Love Jar -->
+        <div class="game-panel" id="game-jar">
+          <p class="game-desc">Click the jar to pull out a random love note from Kian 🫙</p>
+          <div class="jar-container">
+            <div class="love-jar" id="love-jar">
+              <div class="jar-hearts">💕</div>
+            </div>
+          </div>
+          <div class="jar-note hidden" id="jar-note"></div>
+          <div class="jar-fav-wrap hidden" id="jar-fav-wrap">
+            <button class="btn-secondary" id="jar-fav">❤️ Save to Favourites</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECRET VAULT
+    ============================================== -->
+    <section class="vault-section reveal" id="vault">
+      <div class="container">
+        <h2 class="section-title">Secret <span class="gradient-text">Love Vault</span> 🔐</h2>
+        <p class="section-sub">Kian locked something very special here, just for his Kiwi.</p>
+        <div class="vault-lock" id="vault-lock">
+          <div class="lock-icon">🔒</div>
+          <p class="lock-hint">Enter the secret password to unlock hidden letters from Amandip</p>
+          <div class="lock-input-wrap">
+            <input type="password" id="vault-input" class="vault-input" placeholder="Enter password…" maxlength="20"/>
+            <button class="btn-main" id="vault-unlock-btn">Unlock 💌</button>
+          </div>
+          <p class="lock-small-hint">Hint: Kian's favourite name for you + a special number 🌸</p>
+        </div>
+        <div class="vault-content hidden" id="vault-content">
+          <div class="vault-open-badge">🔓 Kiwi unlocked Kian's secret vault!</div>
+          <div class="vault-letters" id="vault-letters">
+            <!-- Injected by JS -->
+          </div>
+          <button class="btn-secondary" id="vault-lock-btn">Lock Vault 🔒</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         MUSIC PLAYER
+    ============================================== -->
+    <section class="music-section reveal" id="music">
+      <div class="container">
+        <h2 class="section-title">Kian's <span class="gradient-text">Playlist</span> for Kiwi 🎵</h2>
+        <div class="music-player">
+          <div class="music-disc" id="music-disc">
+            <div class="disc-inner">💕</div>
+          </div>
+          <div class="music-info">
+            <div class="music-track-name" id="music-track">Kiwi's Smile</div>
+            <div class="music-artist">Amandip — for Soumi</div>
+            <div class="music-controls">
+              <button class="mc-btn" id="mc-prev">⏮</button>
+              <button class="mc-btn mc-play" id="mc-play">▶</button>
+              <button class="mc-btn" id="mc-next">⏭</button>
+            </div>
+            <div class="music-bar">
+              <div class="music-progress" id="music-progress"></div>
+            </div>
+          </div>
+          <div class="music-playlist" id="music-playlist">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FINAL LOVE LETTER
+    ============================================== -->
+    <section class="letter-section reveal" id="letter">
+      <div class="container">
+        <h2 class="section-title">A Letter from <span class="gradient-text">Kian</span></h2>
+        <div class="final-letter-wrap">
+          <div class="letter-paper">
+            <div class="letter-heading dancing">My dearest Soumi, my Kiwi,</div>
+            <div class="letter-body" id="letter-body"></div>
+            <div class="letter-sign dancing">Forever and always yours,<br/>Amandip — your Kian 💕</div>
+          </div>
+        </div>
+        <div class="letter-actions">
+          <button class="btn-secondary" id="download-letter">📥 Download This Letter</button>
+          <button class="btn-secondary" id="copy-letter">📋 Copy Letter</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         RANDOM QUOTE GENERATOR
+    ============================================== -->
+    <section class="quote-section reveal" id="quote-gen">
+      <div class="container">
+        <h2 class="section-title">Kian's <span class="gradient-text">Whispers</span></h2>
+        <div class="quote-card">
+          <div class="quote-text dancing" id="random-quote">Soumi, you are Kian's softest prayer.</div>
+          <button class="btn-main" id="new-quote-btn">New Whisper ✨</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FOOTER
+    ============================================== -->
+    <footer class="footer">
+      <div class="footer-hearts" id="footer-hearts"></div>
+      <p class="footer-text dancing">Made by Amandip (Kian) for Soumi (Kiwi) — forever and always 💖</p>
+      <p class="footer-small">Every word was written with real love. Every animation was built with real longing.</p>
+    </footer>
+
+  </div><!-- end #main-site -->
+
+  <!-- =============================================
+       CARD MODAL
+  ============================================== -->
+  <div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal-card" id="modal-card">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-emoji" id="modal-emoji"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-letter" id="modal-letter"></div>
+      <div class="modal-quote" id="modal-quote"></div>
+      <div class="modal-actions">
+        <button class="btn-main" id="modal-surprise">Surprise Me 🎉</button>
+        <button class="btn-secondary" id="modal-fav">❤️ Favourite</button>
+        <button class="btn-secondary" id="modal-copy">📋 Copy Note</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       SURPRISE OVERLAY
+  ============================================== -->
+  <div class="surprise-overlay hidden" id="surprise-overlay">
+    <div class="surprise-message" id="surprise-message"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
